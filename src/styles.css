@@ -1,27 +1,51 @@
 
-
-.contact-card {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin: 10px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  body {
+    padding: 2rem;
+    font-family: Arial, sans-serif;
+  }
+  
+  .App {
+    text-align: center;
+  }
+  
+  .App-header {
+    background-color: #282c34;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    color: white;
   }
   
   .contact-list {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .contact-card {
+    background-color: #f7f7f7;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 200px;
   }
   
   .contact-form {
+    background-color: #f7f7f7;
     border: 1px solid #ccc;
     padding: 20px;
     margin: 20px 0;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    margin: 0 auto;
   }
   
-  .contact-form h2 {
-    margin-top: 0;
+  .leaflet-container {
+    height: 500px;
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
