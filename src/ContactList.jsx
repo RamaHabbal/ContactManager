@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-// import mockContacts from './mockData';
 import ContactCard from './ContactCard';
 
 

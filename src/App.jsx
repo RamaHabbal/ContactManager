@@ -1,9 +1,16 @@
-import React from 'react';
+// import React from 'react';
+import React, { useState } from 'react';
 import './styles.css'; 
 import ContactList from './ContactList';
 import ContactForm from './ContactForm';
 
 function App() {
+  const [contacts, setContacts] = useState([]);
+
+  const addContact = (newContact) => {
+    setContacts([...contacts, newContact]);
+  };
+
   return (
     <div className="App">
       <header className="App-header">
@@ -12,11 +19,11 @@ function App() {
       <main>
         <div className="contact-form">
           <h2>Add Contact</h2>
-          <ContactForm />
+          <ContactForm  onAddContact={addContact} />
         </div>
         <div className="contact-list">
           <h2>Contact List</h2>
-          <ContactList />
+          <ContactList contacts={contacts} />
         </div>
       </main>
     </div>

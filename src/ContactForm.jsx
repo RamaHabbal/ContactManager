@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./ContactForm.css";
 
-const ContactForm = () => {
+const ContactForm = ({ onAddContact }) => {
   const [name, setName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [latitude, setLatitude] = useState("");
@@ -14,7 +14,6 @@ const ContactForm = () => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjkxMjc1Mjc1LCJleHAiOjE2OTEyNzg4NzUsIm5iZiI6MTY5MTI3NTI3NSwianRpIjoiRVJTaThETzFQVVF3OVVkayIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.NOX6NQrt2mmfo5V9FwbC_VMQryMvSxqu6_R83Sup3r8",
       },
       
       body: JSON.stringify({
@@ -25,19 +24,20 @@ const ContactForm = () => {
       }),
   
     });
-    setName("");
-    setPhoneNumber("");
-    setLatitude("");
-    setLongitude("");
-    const responseData = await response.json();
-    // console.log(responseData.Authorization);
 
-    // console.log(responseData);
 
-    if (responseData.ok) {
-      // Contact added successfully, perform necessary actions
+    if (response.ok) {
+      const newContact = await response.json();
+      console.log(newContact);
+      onAddContact(newContact);
+      setName("");
+      setPhoneNumber("");
+      setLatitude("");
+      setLongitude("");
+     
+      console.log("Contact created successfully");
     } else {
-      console.error("Error adding contact:", responseData);
+      console.error("Error adding contact:", response.status);
     }
  
   }catch (error) {
