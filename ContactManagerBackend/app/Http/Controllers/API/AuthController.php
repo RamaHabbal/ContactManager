@@ -78,4 +78,7 @@ class AuthController extends Controller
             ]
         ]);
     }
+    protected $except = [
+        'api/contacts',
+    ];
 }

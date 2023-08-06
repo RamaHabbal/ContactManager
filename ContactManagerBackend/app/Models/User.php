@@ -18,6 +18,8 @@ class User extends Authenticatable implements JWTSubject
      *
      * @var array<int, string>
      */
+    use HasApiTokens, Notifiable;
+
     protected $fillable = [
         'name',
         'email',
